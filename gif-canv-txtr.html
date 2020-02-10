@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>gif canvas texture</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<style>
+			body {
+				margin: 0px;
+				background-color: #050505;
+				color: #fff;
+				overflow: hidden;
+			}
+
+			a { color: #e00 }
+
+			#info {
+				position: absolute;
+				top: 0px; width: 100%;
+				color: #ffffff;
+				padding: 5px;
+				font-family: Monospace;
+				font-size: 13px;
+				text-align: center;
+				z-index: 1000;
+			}
+
+			#img-canvas {
+				position: absolute;
+				background-color: #000000;
+				top: 0px;
+				right: 0px;
+				z-index: 3000;
+				cursor: crosshair;
+      }
+
+      .jsgif {
+        display: none;
+      }
+    </style>
+
+	</head>
+	<body>
+    <img id="gif1" src="gif_canvas_test/bathroom-wall.gif" rel:auto_play="1" width="64" height="64">
+    
+		<script type="text/javascript" src="gif_canvas_test/three.min.js"></script>
+    <script type="text/javascript" src="gif_canvas_test/Detector.js"></script>
+    <script type="text/javascript" src="gif_canvas_test/libgif.js"></script>
+
+		<script type="text/javascript">
+      if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
+      
+      var camera, scene, renderer, mesh, material;
+      
+      var supGif = new SuperGif({ gif: document.getElementById('gif1') } );
+      supGif.load();
+      var gifCanvas = supGif.get_canvas();
+      // var ictx=gifCanvas.getContext("2d");
+
+			init();
+      animate();
+
+			function init() {
+				camera = new THREE.PerspectiveCamera( 50, window.innerWidth / window.innerHeight, 1, 2000 );
+				camera.position.z = 1000;
+
+        scene = new THREE.Scene();
+
+        const ambientLight = new THREE.AmbientLight(0xFFFFFF);
+        scene.add(ambientLight);
+
+        dispTexture = new THREE.Texture(gifCanvas);
+        
+        const planeGeometry = new THREE.PlaneGeometry(5000, 5000);
+        const planeMaterial = new THREE.MeshLambertMaterial({color: 0xFFFFFF});
+        const plane = new THREE.Mesh(planeGeometry, planeMaterial);
+        plane.rotation.x = 1.75 * Math.PI;
+        plane.rotation.z = -0.5 * Math.PI;
+        plane.position.x = 0;
+        plane.position.y = -750;
+        plane.position.z = 0;
+        scene.add(plane);
+    
+    // material = new THREE.ShaderMaterial( {
+    //         uniforms: uniforms,
+    //         vertexShader: shader.vertexShader,
+    //         fragmentShader: shader.fragmentShader,
+    //         lights: true,
+    //         side: THREE.DoubleSide
+    // } );
+
+        // gif as flat texture
+        material = new THREE.MeshStandardMaterial();
+        // material.displacementMap = new THREE.Texture( gifCanvas );
+        material.map = new THREE.Texture( gifCanvas );
+        material.displacementMap = material.map;
+
+				mesh = new THREE.Mesh( new THREE.BoxGeometry( 200, 200, 200, 200, 200, 200 ), material );
+				scene.add( mesh );
+
+				renderer = new THREE.WebGLRenderer( { antialias: true } );
+				renderer.setPixelRatio( window.devicePixelRatio );
+				renderer.setSize( window.innerWidth, window.innerHeight );
+				document.body.appendChild( renderer.domElement );
+
+				window.addEventListener( 'resize', onWindowResize, false );
+
+      }
+
+			function onWindowResize() {
+
+				camera.aspect = window.innerWidth / window.innerHeight;
+				camera.updateProjectionMatrix();
+
+				renderer.setSize( window.innerWidth, window.innerHeight );
+
+			}
+
+			function animate() {
+
+        //material.needsUpdate = true;
+        // gif as flat texture
+        material.map.needsUpdate = true;
+        // material.displacementScale = Math.floor(Math.random() * 100);
+        material.displacementScale = 200;
+        material.displacementMap.needsUpdate = true;
+        // material.displacementScale.needsUpdate = true;
+
+				requestAnimationFrame( animate );
+
+				mesh.rotation.x += 0.01;
+        mesh.rotation.y += 0.01;
+        
+				renderer.render( scene, camera );
+
+			}
+
+		</script>
+
+	</body>
+</html>
