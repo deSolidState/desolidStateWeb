@@ -1,0 +1,22 @@
+html, body {
+  margin: 0px;
+  padding: 0px;
+  border: 0px;
+  font-size: 16px;
+}
+
+/* at 16px font-size 16px = 1em, 1px = .0625em */
+img, br {
+  height: 1.75em;
+  width: 1.75em;
+  margin: -0.12em 0em;
+}
+
+/* use min-height for mobile-first respDesign */
+@media screen and (min-height: 42.6em){
+  img, br {
+    height: 4em;
+    width: 4em;
+    margin: -0.13em 0em;
+  }
+}
