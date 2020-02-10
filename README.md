@@ -1,3 +1,0 @@
-# deSolid State
-
-## Code Repos
