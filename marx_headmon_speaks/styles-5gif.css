@@ -1,0 +1,46 @@
+body {
+  margin: 0;
+  box-sizing: border-box;
+  background-color: black;
+}
+
+img {
+  margin-top: 4px;
+  vertical-align: center;
+}
+
+.row {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  padding: 0 4px;
+}
+
+/* Create two equal columns that sits next to each other */
+.column {
+  flex: 50%;
+  max-width: 30%;
+  padding: 0 4px;
+}
+
+/* correct width for text */
+.text-column {
+  flex: 50%;
+  max-width: 75%;
+  padding: 0 4px;
+}
+
+.to-top {
+  bottom: 100vh;
+}
+
+#bib {
+  background-color: darkviolet;
+  color: yellow;
+  margin: 15px;
+  height: 50vh;
+}
+
+
