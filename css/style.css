@@ -587,38 +587,18 @@ footer {
   padding-bottom: 30px;
 }
 
-@media (max-width: 40.8125em), (max-device-width: 40.8125em) {
-  footer {
-    text-align: center;
-  }
-}
-
-footer .widget {
+.widget {
   width: 277px;
   padding: 10px;
   display: inline-block;
-  zoom: 1;
   position: relative;
   margin-bottom: 25px;
   vertical-align: top;
 }
 
-.widgetContent {
-  text-align: left;
-}
-
 .widget h3 {
   font-size: 0.95em;
   text-align: left;
-}
-
-.widget ul {
-  padding-left: 0;
-}
-
-.widget li {
-  list-style: none;
-  padding: 0 0 14px;
 }
 
 .tweet p {
@@ -636,4 +616,14 @@ footer .widget {
 .copy {
   font-size: 0.1em;
   margin-left: 10px;
+}
+
+@media (max-width: 40.8125em), (max-device-width: 40.8125em) {
+  footer {
+    text-align: center;
+  }
+
+  .widget {
+    text-align: left;
+  }
 }
