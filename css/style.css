@@ -144,13 +144,9 @@ header {
   }
 }
 
-/*main*/
-.wrapMain {
+.main {
   background-color: #eeeff3;
   min-width: 297px;
-}
-
-.main {
   max-width: 1200px;
   margin: 0 auto;
   padding: 30px 10px;
@@ -589,6 +585,7 @@ footer {
 
 .widget {
   width: 277px;
+  height: 100vh;
   padding: 10px;
   display: inline-block;
   position: relative;
