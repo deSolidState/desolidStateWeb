@@ -1,0 +1,18 @@
+body {
+  box-sizing: border-box;
+  font-family: menlo, monospace, sans-serif;
+  max-width: 750px;
+  padding: 0 2rem;
+}
+
+ul {
+  padding-left: 0;
+}
+
+li {
+  display: flex;
+}
+
+.tab {
+  margin-right: 3rem;
+}
