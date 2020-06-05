@@ -1,15 +1,16 @@
-/*main*/
 body {
   font: 0.8125em Helvetica, 'Helvetica Neue', Arial, Verdana, sans-serif;
   color: #666666;
   margin: 0 10px;
   box-sizing: border-box;
 }
+
 @media (max-width: 37em), (max-device-width: 37em) {
   body {
     margin: 0;
   }
 }
+
 body a {
   text-decoration: none;
   color: #464646;
@@ -20,6 +21,7 @@ body a {
   -o-transition: color 0.1s linear;
   transition: color 0.1s linear;
 }
+
 body a:hover {
   color: #1876bd;
 }
@@ -145,7 +147,7 @@ header {
 }
 
 .main {
-  background-color: #eeeff3;
+  background-color: #efeef3;
   min-width: 297px;
   max-width: 1200px;
   margin: 0 auto;
@@ -154,65 +156,16 @@ header {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: center;
-}
-
-@media (max-width: 40.8125em), (max-device-width: 40.8125em) {
-  .main {
-    padding: 30px 0;
-  }
-}
-.filter {
-  text-align: center;
-  font-style: italic;
-  width: 100%;
-}
-.filter a {
-  display: inline-block;
-  padding: 5px 15px;
-  background-color: white;
-  -webkit-border-radius: 10px;
-  -khtml-border-radius: 10px;
-  -moz-border-radius: 10px;
-  -ms-border-radius: 10px;
-  -o-border-radius: 10px;
-  border-radius: 10px;
-  -webkit-box-shadow: 0 1px 1px grey;
-  -khtml-box-shadow: 0 1px 1px grey;
-  -moz-box-shadow: 0 1px 1px grey;
-  -ms-box-shadow: 0 1px 1px grey;
-  -o-box-shadow: 0 1px 1px grey;
-  box-shadow: 0 1px 1px grey;
-  color: #9b9b9b;
-  margin: 2px 0;
-}
-.filter a:hover {
-  color: #353535;
-}
-.filter .selected {
-  color: #1782c2;
-}
-.filter .selected:hover {
-  color: #1782c2;
-  cursor: default;
-}
-.filterName {
-  padding-right: 10px;
-  margin: 2px 0;
-  margin-right: 8px;
-  background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAQCAIAAAEv%2BrJ2AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJ%0AbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdp%0Abj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8%2BIDx4OnhtcG1ldGEgeG1sbnM6%0AeD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0%0ANTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJo%0AdHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlw%0AdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAv%0AIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RS%0AZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpD%0AcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoV2luZG93cykiIHhtcE1NOkluc3RhbmNl%0ASUQ9InhtcC5paWQ6QTRBQ0VDNzU4ODk2MTFFMjg0RTk5RTcxQUIyMEYwREYiIHhtcE1NOkRvY3Vt%0AZW50SUQ9InhtcC5kaWQ6QTRBQ0VDNzY4ODk2MTFFMjg0RTk5RTcxQUIyMEYwREYiPiA8eG1wTU06%0ARGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDpBNEFDRUM3Mzg4OTYxMUUyODRF%0AOTlFNzFBQjIwRjBERiIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDpBNEFDRUM3NDg4OTYxMUUy%0AODRFOTlFNzFBQjIwRjBERiIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1w%0AbWV0YT4gPD94cGFja2V0IGVuZD0iciI/Pv3L8a0AAAAhSURBVHjaYrp%2B/ToTAwMDQAAxQWmAAILT%0AUAwQYBh8NAwA6E8KNZlbYaEAAAAASUVORK5CYII%3D%0A')
-    no-repeat right center;
-  zoom: 1;
+  justify-content: space-around;
 }
 
 .postExcerpt {
-  width: 297px;
+  width: 267px;
   height: 297px;
   display: inline-block;
-  zoom: 1;
   position: relative;
   text-align: left;
-  margin-bottom: 25px;
+  margin: 0 12.5px 25px 12.5px;
 }
 
 .postExcerpt h2 {
@@ -223,7 +176,6 @@ header {
 .postExcerptInner {
   width: 267px;
   height: 297px;
-  float: left;
   -webkit-border-radius: 10px;
   -khtml-border-radius: 10px;
   -moz-border-radius: 10px;
@@ -581,15 +533,14 @@ footer {
   max-width: 1200px;
   margin: 0 auto;
   padding-bottom: 30px;
+  height: 200vh;
 }
 
 .widget {
-  width: 277px;
-  height: 100vh;
+  width: 45%;
   padding: 10px;
   display: inline-block;
   position: relative;
-  margin-bottom: 25px;
   vertical-align: top;
 }
 
@@ -606,21 +557,20 @@ footer {
   color: #1781c2;
 }
 
-.footerInner {
-  margin-top: 30px;
-}
-
 .copy {
+  background-color: #efeef3;
   font-size: 0.1em;
   margin-left: 10px;
+  width: 100%;
 }
 
-@media (max-width: 40.8125em), (max-device-width: 40.8125em) {
+@media screen and (max-width: 700px) {
   footer {
     text-align: center;
   }
 
   .widget {
     text-align: left;
+    width: 80%;
   }
 }
