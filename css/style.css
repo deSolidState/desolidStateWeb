@@ -415,6 +415,61 @@ header {
   margin-left: 95px;
 }
 
+/*note*/
+.note .postExcerptInner {
+  background-color: #fcfcfc;
+}
+.note .titleAndCat {
+  border-bottom: 1px solid #186cba;
+}
+
+.note p {
+  padding: 0 10px;
+  height: 179px;
+  overflow: hidden;
+}
+
+/* .note .postExcerptInner:hover {
+  background-color: #353535;
+} */
+
+/* .note .postExcerptInner:hover > .titleAndCat {
+  width: 247px;
+  border-bottom: none;
+  color: white;
+}
+
+.note .postExcerptInner:hover > p {
+  display: none;
+}
+
+.note .postExcerptInner:hover em {
+  color: #9b9b9b;
+} */
+
+.note .read {
+  text-indent: -9999px;
+  background-position: 0 -211px;
+  display: block;
+  width: 85px;
+  height: 40px;
+  display: none;
+  margin-top: 50px;
+}
+
+/* .note .read:hover {
+  background-position: -209px -211px;
+} */
+
+.note .read:active {
+  background-position: -102px -211px;
+}
+
+/* .note .postExcerptInner:hover a {
+  display: block;
+  margin-left: 95px;
+} */
+
 /*audio*/
 .audio .postExcerptInner {
   background-color: #464646;
