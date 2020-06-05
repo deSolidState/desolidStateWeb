@@ -149,12 +149,18 @@ header {
   background-color: #eeeff3;
   min-width: 297px;
 }
+
 .main {
   max-width: 1200px;
   margin: 0 auto;
   padding: 30px 10px;
   overflow: hidden;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
 }
+
 @media (max-width: 40.8125em), (max-device-width: 40.8125em) {
   .main {
     padding: 30px 0;
