@@ -15,6 +15,14 @@ p {
   margin: 0;
 }
 
+h3 {
+  margin-bottom: 0;
+}
+
+ul {
+  margin-top: 0;
+}
+
 /* setting the default for the device info popups on hover */
 .device-info {
   visibility: hidden;
@@ -24,7 +32,7 @@ p {
   color: #fff;
   /* text-align: center; */
   padding: 10px;
-  border-radius: 3%;
+  border-radius: 5% 1% 1% 5%;
 
   /* Position the tooltip text - see examples below! */
   position: absolute;
@@ -118,7 +126,8 @@ main {
   background-color: silver;
   border-radius: 4%;
   padding: 0.2rem;
-  grid-row: 3;
+  grid-row: 1;
+  grid-column: 1;
 }
 
 .macbook > div,
@@ -173,5 +182,34 @@ p {
 
 .device:hover .device-info {
   visibility: visible;
-  transition: visibility 1.5s ease-out;
+  scroll-behavior: smooth;
+  overflow: scroll;
+  overflow-x: hidden;
+}
+
+.device-info::-webkit-scrollbar {
+  background-color: black;
+  width: 10px;
+  border-radius: 5px;
+}
+
+/* -webkit- is a vendor prefix for chrome and safari */
+.device-info::-webkit-scrollbar-track {
+  background-color: rgb(51, 89, 128);
+  width: 7px;
+  -webkit-box-shadow: inset 0 0 6px lightgray;
+  box-shadow: inset 0 0 6px lightgray;
+  border-radius: 5px;
+}
+
+/* for scrollbar color */
+.device-info {
+  scrollbar-color: rgb(51, 89, 128);
+}
+
+.device-info::-webkit-scrollbar-thumb {
+  background: lightgray;
+  border-radius: 5px;
+  -webkit-box-shadow: inset 0 0 6px gray;
+  box-shadow: inset 0 0 6px gray;
 }

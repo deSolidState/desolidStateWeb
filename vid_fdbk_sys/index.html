@@ -8,29 +8,56 @@
 
   <body>
     <header>
-      <h2>Version 3: Vid System</h2>
+      <h1>Version 3: Vid System</h1>
     </header>
 
     <main>
-      <section class="tv device">
+      <section id="this-one" class="tv device">
         <p>TV</p>
+        <p>change</p>
         <div class="device-info">A basic TV</div>
       </section>
 
       <section class="v8 device">
         <p>EDIROL V8</p>
+        <div class="device-info">
+          <p>Analog video mixer with effects</p>
+          <p>8 input channels</p>
+          <ul>
+            <li>in - rca video from r_e_c_u_r</li>
+            <li>in - s-video from Videonics equalizer</li>
+            <li>in - rca video from Videonics equalizer</li>
+            <li>out - rca video to TV</li>
+            <li>out - s-video to Videonics equalizer</li>
+            <li>out - rca-video to USB video capture devices via splitter</li>
+          </ul>
+          <p>fade between assignable A - B channels</p>
+          <p>beat matching between channels &/or on effects</p>
+
+          <section>
+            <h3>A channel</h3>
+            <ul>
+              <li>internal feedback loop</li>
+              <li>invert color</li>
+              <li>colorize</li>
+              <li>multipanel</li>
+            </ul>
+          </section>
+
+          <section>
+            <h3>B channel</h3>
+            <ul>
+              <li>flip</li>
+              <li>lumakey</li>
+              <li>chromakey</li>
+              <li>pic in a window</li>
+            </ul>
+          </section>
+        </div>
+
         <p>analog video mixer</p>
         <p>8 inputs</p>
         <p>lots of effects</p>
-        <div class="device-info">
-          <p>An analog video mixer with effects</p>
-          <ul>
-            <li>8 input channels</li>
-            <li>fade between assignable A - B channels</li>
-            <li>internal feedback loop</li>
-            <li></li>
-          </ul>
-        </div>
       </section>
 
       <section class="recur device">
@@ -48,9 +75,9 @@
         <p>use in primary analog feedback loop</p>
         <div class="device-info">
           <ul>
-            <li>input - rca video from Edirol V8</li>
-            <li>output - s-video to Edriol V8</li>
-            <li>output - rca video Edriol V8</li>
+            <li>in - rca video from Edirol V8</li>
+            <li>out - s-video to Edriol V8</li>
+            <li>out - rca video to Edriol V8</li>
           </ul>
           <p>analog video feedback loop</p>
         </div>
