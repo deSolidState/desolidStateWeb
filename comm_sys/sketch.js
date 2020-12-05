@@ -2,23 +2,29 @@
 // what user types appears on canvas
 // **********************************
 
-let message = '';
+let msg = '';
+let msgLen = 0;
 let xTxt = 10;
 let yTxt = 50;
 let isScroll = false;
+let fontSize = 16;
+
+let optBtnTime = 0;
 
 let fr = 30; //starting FPS
-let clr;
+let txtClr;
 
 function setup() {
-  createCanvas(400, 300);
+  cnv = createCanvas(400, 300);
+  cnv.mouseOver(mouseMoved);
+
   background(200);
-  textSize(16);
+  textSize(fontSize);
   fill(255);
   noStroke();
 
   frameRate(fr); // Attempt to refresh at starting FPS
-  clr = color(255, 0, 0);
+  txtClr = color(255, 0, 0);
 }
 
 function draw() {
@@ -28,31 +34,41 @@ function draw() {
     xTxt = xTxt + 1 * (deltaTime / 50);
   }
 
-  text(message, xTxt, yTxt);
-
   if (xTxt >= width) {
     // If you go off screen.
     if (fr === 30) {
-      clr = color(0, 0, 255);
+      txtClr = color(0, 0, 255);
       fr = 10;
       frameRate(fr); // make frameRate 10 FPS
     } else {
-      clr = color(255, 0, 0);
+      txtClr = color(255, 0, 0);
       fr = 30;
       frameRate(fr); // make frameRate 30 FPS
     }
-    xTxt = -400;
+    xTxt = -1 * (msgLen * (fontSize - 3));
   }
-  fill(clr);
+  fill(txtClr);
+  text(msg, xTxt, yTxt);
+
+  if (optBtnTime > 0) {
+    btnClr = color(100, 50, 100);
+    optBtnTime = optBtnTime - deltaTime;
+    btnClr.setAlpha((51 * optBtnTime) / 1000);
+    fill(btnClr);
+
+    rect(13, 13, width - 26, height - 26);
+  }
 }
 
 function keyPressed() {
   // First check if the key is something we want to type.
   if (key.length == 1 && key.match(/[\S,\ ,\n]/)) {
-    message = message + key;
+    msg = msg + key;
+    msgLen = msg.length;
     // Otherwise, if it is the backspace key remove one charater.
   } else if (keyCode == BACKSPACE || keyCode == DELETE) {
-    message = message.substr(0, message.length - 1);
+    msg = msg.substr(0, msg.length - 1);
+    msgLen = msg.length;
     // If it is the enter key, then add a newline.
   } else if (keyCode == ENTER) {
     isScroll = true;
@@ -62,14 +78,12 @@ function keyPressed() {
 }
 
 function mouseClicked() {
-  message = '';
+  msg = '';
   isScroll = false;
   xTxt = mouseX;
   yTxt = mouseY;
+}
 
-  // if (value === 0) {
-  //   value = 255;
-  // } else {
-  //   value = 0;
-  // }
+function mouseMoved() {
+  optBtnTime = 5000;
 }
