@@ -25,6 +25,7 @@ function setup() {
 
   frameRate(fr); // Attempt to refresh at starting FPS
   txtClr = color(255, 0, 0);
+  console.log(text);
 }
 
 function draw() {
@@ -38,16 +39,26 @@ function draw() {
     // If you go off screen.
     if (fr === 30) {
       txtClr = color(0, 0, 255);
-      fr = 10;
+      fr = 4;
       frameRate(fr); // make frameRate 10 FPS
     } else {
       txtClr = color(255, 0, 0);
-      fr = 30;
+      fr = 11;
       frameRate(fr); // make frameRate 30 FPS
     }
     xTxt = -1 * (msgLen * (fontSize - 3));
   }
+
+  // this is very bad glowing letters
+  // 1st the background glow
+  textSize(fontSize + 3);
   fill(txtClr);
+  text(msg, xTxt - 5, yTxt + (fontSize - 15) / 2);
+  filter(BLUR, 4);
+
+  // 2nd print the messsage over top
+  textSize(fontSize);
+  fill(0, 255, 0);
   text(msg, xTxt, yTxt);
 
   if (optBtnTime > 0) {
@@ -85,5 +96,5 @@ function mouseClicked() {
 }
 
 function mouseMoved() {
-  optBtnTime = 5000;
+  // optBtnTime = 5000;
 }
