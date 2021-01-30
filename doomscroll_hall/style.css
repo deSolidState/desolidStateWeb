@@ -10,11 +10,11 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vw;
+  height: 100vh;
   width: 100vw;
   background-color: pink;
 }
 
 #cont img {
-  width: 90%;
+  width: 80%;
 }
