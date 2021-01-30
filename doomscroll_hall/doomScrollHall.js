@@ -151,7 +151,7 @@ let image = document.createElement('img');
 cntr.appendChild(image);
 
 setInterval(incPic, 200);
-setInterval(changeBkg, 3000);
+setInterval(changeBkg, 13000);
 
 function incPic() {
   picIdx += 1;

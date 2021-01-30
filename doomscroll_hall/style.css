@@ -13,8 +13,9 @@ body {
   height: 100vh;
   width: 100vw;
   background-color: pink;
+  transition: 3000ms;
 }
 
 #cont img {
-  width: 80%;
+  width: 70%;
 }
