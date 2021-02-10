@@ -126,8 +126,8 @@ main {
   background-color: silver;
   border-radius: 4%;
   padding: 0.2rem;
-  grid-row: 1;
-  grid-column: 1;
+  grid-row: 2 / 4;
+  grid-column: 2 / 4;
 }
 
 .macbook > div,
