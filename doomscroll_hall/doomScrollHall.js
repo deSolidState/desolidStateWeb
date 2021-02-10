@@ -1,6 +1,6 @@
 'use strict';
 
-let picArr = [
+let picArr0 = [
   '2020-04-16-am10.20.07.webp',
   '2020-04-16-am11.16.28.webp',
   '2020-04-16-am9.43.12.webp',
@@ -168,28 +168,221 @@ let picArr = [
   '2021-02-08-pm10.05.12.webp',
 ];
 
+let picArr1 = [
+  '1561140.jpg',
+  '1561141.jpg',
+  '1561142.jpg',
+  '1561143.jpg',
+  '1561145.jpg',
+  '1561147.jpg',
+  '1561148.jpg',
+  '1561149.jpg',
+  '1561150.jpg',
+  '1561151.jpg',
+  '1561152.jpg',
+  '1561153.jpg',
+  '1561154.jpg',
+  '1561155.jpg',
+  '1561156.jpg',
+  '1561157.jpg',
+  '1561158.jpg',
+  '1561159.jpg',
+  '1561160.jpg',
+  '1561161.jpg',
+  '1561162.jpg',
+  '1561163.jpg',
+  '1561164.jpg',
+  '1561165.jpg',
+  '1561166.jpg',
+  '1561167.jpg',
+  '1561168.jpg',
+  '1561169.jpg',
+  '1561170.jpg',
+  '1561171.jpg',
+  '1561172.jpg',
+  '1561173.jpg',
+  '1561174.jpg',
+  '1561175.jpg',
+  '1561176.jpg',
+  '1561185.jpg',
+  '1561186.jpg',
+  '1561187.jpg',
+  '1561188.jpg',
+  '1561189.jpg',
+  '1561190.jpg',
+  '1561191.jpg',
+  '1561192.jpg',
+  '1561193.jpg',
+  '1561194.jpg',
+  '1561195.jpg',
+  '1561196.jpg',
+  '1561197.jpg',
+  '1561198.jpg',
+  '1561199.jpg',
+  '1561200.jpg',
+  '1561201.jpg',
+  '1561202.jpg',
+  '1561203.jpg',
+  '1561204.jpg',
+  '1561205.jpg',
+  '1561206.jpg',
+  '1561207.jpg',
+  '1561208.jpg',
+  '1561209.jpg',
+  '1561210.jpg',
+  '1561211.jpg',
+  '1561212.jpg',
+  '1561213.jpg',
+  '1561214.jpg',
+  '1561254.jpg',
+  '1561255.jpg',
+  '1561256.jpg',
+  '1561257.jpg',
+  '1561258.jpg',
+  '1561259.jpg',
+  '1561260.jpg',
+  '1561261.jpg',
+  '1561262.jpg',
+  '1561263.jpg',
+  '1561264.jpg',
+  '1561265.jpg',
+  '1561266.jpg',
+  '1561267.jpg',
+  '1561268.jpg',
+  '1561269.jpg',
+  '1561270.jpg',
+  '1561271.jpg',
+  '1561272.jpg',
+  '1561278.jpg',
+  '1561279.jpg',
+  '1561280.jpg',
+  '1561281.jpg',
+  '1561282.jpg',
+  '1561283.jpg',
+  '1561284.jpg',
+  '1561285.jpg',
+  '1561286.jpg',
+  '1561287.jpg',
+  '1561288.jpg',
+  '1561289.jpg',
+  '1561662.jpg',
+  '1561663.jpg',
+  '1561664.jpg',
+  '1561665.jpg',
+  '1561666.jpg',
+  '1561667.jpg',
+  '1561668.jpg',
+  '1561669.jpg',
+  '1561671.jpg',
+  '1561672.jpg',
+  '1561673.jpg',
+  '1561674.jpg',
+  '1561675.jpg',
+  '1561676.jpg',
+  '1561677.jpg',
+  '1561678.jpg',
+  '1561679.jpg',
+  '1561680.jpg',
+  '1561681.jpg',
+  '1561682.jpg',
+  '1561683.jpg',
+  '1561684.jpg',
+  '1561685.jpg',
+  '1561686.jpg',
+  '1561687.jpg',
+  '1561688.jpg',
+  '1561689.jpg',
+  '1561715.jpg',
+  '1561716.jpg',
+  '1561717.jpg',
+  '1561718.jpg',
+  '1561719.jpg',
+  '1561721.jpg',
+  '1561722.jpg',
+  '1561723.jpg',
+  '1561724.jpg',
+  '1561726.jpg',
+  '1561727.jpg',
+  '1561728.jpg',
+  '1561729.jpg',
+  '1561730.jpg',
+  '1561731.jpg',
+  '1561772.jpg',
+  '1561773.jpg',
+  '1561774.jpg',
+  '1561775.jpg',
+  '1561776.jpg',
+  '1561778.jpg',
+  '1561779.jpg',
+  '1561780.jpg',
+  '1561781.jpg',
+  '1561789.jpg',
+  '1561790.jpg',
+  '1561791.jpg',
+  '1561792.jpg',
+  '1561793.jpg',
+  '1561794.jpg',
+  '1561795.jpg',
+  '1561796.jpg',
+  '1561799.jpg',
+  '1561800.jpg',
+  '1561801.jpg',
+  '1561802.jpg',
+  '1561803.jpg',
+  '1561804.jpg',
+  '1561805.jpg',
+  '1561806.jpg',
+];
+
+// initial conditions
+let toggle = 0;
 let picIdx = 0;
-let len = picArr.length;
+let picArr = picArr0;
+let dirStr = 'webp_img';
+let startTime;
 
 const cntr = document.getElementById('cont');
 let image = document.createElement('img');
 cntr.appendChild(image);
-
-setInterval(incPic, 200);
-setInterval(changeBkg, 13000);
-
-function incPic() {
-  picIdx += 1;
-
-  if (picIdx > len - 1) {
-    picIdx = 0;
-  }
-  image.src = `webp_img/${picArr[picIdx]}`;
-  console.log(image.src);
-}
 
 function changeBkg() {
   let rndClr = Math.floor(Math.random() * 16777215).toString(16);
 
   cntr.style.backgroundColor = `#${rndClr}`;
 }
+
+function someFunc(timestamp) {
+  setTimeout(function () {
+    picIdx += 1;
+    let len = picArr.length;
+
+    // switches array of images and resets index to 0
+    if (picIdx > len - 1) {
+      picIdx = 0;
+
+      toggle += 1;
+      if (toggle === 2) {
+        toggle = 0;
+      }
+
+      picArr = toggle ? picArr1 : picArr0;
+      dirStr = toggle ? 'dream_img' : 'webp_img';
+    }
+
+    image.src = `${dirStr}/${picArr[picIdx]}`;
+
+    let delta = timestamp - startTime;
+
+    if (delta >= 13000) {
+      startTime = timestamp;
+      changeBkg();
+    }
+
+    requestAnimationFrame(someFunc);
+  }, 200);
+}
+
+requestAnimationFrame((timestamp) => {
+  startTime = timestamp;
+  someFunc(timestamp);
+});
