@@ -360,17 +360,13 @@ function someFunc(timestamp) {
     if (picIdx > len - 1) {
       picIdx = 0;
 
-      toggle += 1;
-      if (toggle === 2) {
-        toggle = 0;
-      }
-
+      toggle = toggle ? 0 : 1;
       picArr = toggle ? picArr1 : picArr0;
       dirStr = toggle ? 'dream_img' : 'webp_img';
     }
 
+    // changes the image to be rendered from the proper path and array
     image.src = `${dirStr}/${picArr[picIdx]}`;
-
     let delta = timestamp - startTime;
 
     if (delta >= 13000) {
@@ -386,3 +382,5 @@ requestAnimationFrame((timestamp) => {
   startTime = timestamp;
   someFunc(timestamp);
 });
+
+// Even worse, using setTimeout() or setInterval() to continuously make changes to the user's screen often induces "layout thrashing", the browser version of cardiac arrest where it is forced to perform unnecessary reflows of the page before the user's screen is physically able to display the changes. This is bad -very bad- due to the taxing nature of page reflows, especially on mobile devices where the problem is most apparent, with janky page loads and battery drains.
