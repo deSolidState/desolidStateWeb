@@ -85,6 +85,7 @@ puppeteer
 
       return str;
     }
+    ``;
     let something = '';
     for (i = 0; i < _numFrames; i++) {
       // https://stackoverflow.com/questions/46088351/how-can-i-pass-variable-into-an-evaluate-function/52012664
