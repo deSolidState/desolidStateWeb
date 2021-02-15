@@ -1,19 +1,18 @@
 body {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 #bucket {
-  box-sizing: border-box;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 #img-bucket {
-  width: 512px;
-  height: 517px;
-  box-sizing: border-box;
+  width: 75vw;
+  height: 75.75vw;
   display: flex;
   flex: none;
   justify-content: center;
@@ -24,8 +23,9 @@ body {
   border-width: 0 1px 0 1px; */
   border: 1px solid lightgrey;
   /* overflow: hidden; */
-  margin: 100px;
+  margin: 10px 25px;
 }
+
 img {
   width: 100%;
   height: 100%;
@@ -39,4 +39,55 @@ img {
 
 #mult {
   border-color: lightsalmon;
+}
+
+.container {
+  display: flex;
+  padding: 10px;
+  border: 1px solid green;
+}
+
+.adjustments {
+  border: 13px dotted coral;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+/* basic slider found online */
+.slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 15px;
+  border-radius: 5px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: 0.2s;
+  transition: opacity 0.2s;
+  margin: 15px auto;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #4caf50;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #4caf50;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 700px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+  }
 }

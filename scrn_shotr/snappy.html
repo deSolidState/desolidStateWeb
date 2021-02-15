@@ -5,37 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="" />
     <meta name="author" content="Karthikeyan K" />
-    <title>
-      Webpage Screenshots using Javascript & HTML5 - Demo by w3lessons.info
-    </title>
-    <!-- Bootstrap CSS file -->
+    <title>scrnShotr</title>
     <link rel="stylesheet" href="styles.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
   </head>
 
   <!-- Body -->
   <body>
     <!-- Header -->
-    <header class="" role="banner"></header>
+    <header>
+      <h1>Automate Screenshots - Demo</h1>
+    </header>
 
     <!-- Main -->
     <main class="container">
-      <h1>Automate Screenshots - Demo</h1>
-
+      
       <div id="img-bucket">
         <img id="result-image" src="orig/orig.png" alt="resulting image"></img>
       </div>
 
-      <div>
+      <div class="adjustments">
+        <label for="quality">Quality: 0050</label>
+        <input id="quality" name="quality" type="range" min="0" max="100" value="50" class="slider">
+
+        <label for="padding">Padding: 0001</label>
+        <input id="padding" name="padding" type="range" min="0" max="10" value="1" class="slider">
+
+        <label for="frames">Frames: 0500</label>
+        <input id="frames" name="frames" type="range" min="1" max="2500" value="500" class="slider">
+
+
         <button type="button" class="btn">Take Whole Page</button>
         <button type="button" id="mult" class="btn">Take Multiple Screenshots</button>
       </div>
-    </main>
 
-    <footer>bottom</footer>
+
+    </main>
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 
