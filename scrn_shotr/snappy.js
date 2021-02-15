@@ -1,7 +1,7 @@
 'use strict;';
 
 let count = 0;
-let frames = 500;
+let numFrames = 500;
 let deltaQual = 0.3;
 let deltaPad = 1;
 
@@ -11,6 +11,9 @@ quality.addEventListener('change', updateNum);
 
 const padFactor = document.getElementById('padding');
 padFactor.addEventListener('change', updateNum);
+
+const frames = document.getElementById('frames');
+frames.addEventListener('change', updateNum);
 
 const mult = document.getElementById('mult');
 mult.addEventListener('click', takeMultScreenShots);
@@ -32,7 +35,7 @@ function updateNum(e) {
       deltaPad = Math.floor(e.target.value / 2);
       break;
     case 'frames':
-      frames = e.target.value;
+      numFrames = e.target.value;
       console.log(frames);
       break;
     default:
@@ -75,11 +78,15 @@ function takeMultScreenShots() {
   let intId = setInterval(clickyclicky, 200);
 
   function clickyclicky() {
-    if (frames < 2) {
+    if (numFrames < 2) {
       clearInterval(intId);
-      frames = 501;
+      numFrames = parseInt(
+        frames.previousSibling.previousSibling.innerHTML.slice(-4),
+        10
+      );
+      // numFrames = 501;
     }
-    console.log(frames, 'frames');
+    console.log(numFrames, 'numFrames');
     html2canvas(document.getElementById('img-bucket'), {
       onrendered: function (canvas) {
         let padding = getPaddingAmts(deltaPad);
@@ -113,7 +120,7 @@ function takeMultScreenShots() {
       useCORS: true,
       // logging: true,
     });
-    frames = frames - 1;
+    numFrames = numFrames - 1;
     count = count + 1;
     return false;
   }
