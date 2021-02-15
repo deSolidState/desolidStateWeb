@@ -5,6 +5,9 @@ let numFrames = 500;
 let deltaQual = 0.3;
 let deltaPad = 1;
 
+// const canvas = document.getElementById('img-canvas');
+// const ctx = canvas.getContext('2d');
+
 // grab elements on page and add listeners
 const quality = document.getElementById('quality');
 quality.addEventListener('change', updateNum);
@@ -17,6 +20,9 @@ frames.addEventListener('change', updateNum);
 
 const mult = document.getElementById('mult');
 mult.addEventListener('click', takeMultScreenShots);
+
+const imgLoad = document.getElementById('img-load');
+imgLoad.addEventListener('change', uploadImg, false);
 
 function updateNum(e) {
   let numSpot = e.target.previousSibling.previousSibling;
@@ -41,6 +47,19 @@ function updateNum(e) {
     default:
       console.log('you have a problem with the code');
   }
+}
+
+// help from this stack overflow: https://stackoverflow.com/questions/10906734/how-to-upload-image-into-html5-canvas/10906961
+function uploadImg(e) {
+  var reader = new FileReader();
+  reader.onload = function (event) {
+    var img = new Image();
+    img.onload = function () {
+      $('#result-image').attr('src', event.target.result).show();
+    };
+    img.src = event.target.result;
+  };
+  reader.readAsDataURL(e.target.files[0]);
 }
 
 function fourDigitStr(num) {
