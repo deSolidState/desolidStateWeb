@@ -29,11 +29,59 @@
         <label for="quality">Quality: 0050</label>
         <input id="quality" name="quality" type="range" min="0" max="100" value="50" class="slider">
 
+        <section class="stashes">
+          <div class="stash-input">
+            <label for="red-shift-1">red shift 1: 0017</label>
+            <input id="red-shift-1" name="red-shift-1" type="range" min="1" max="100" value="17" class="slider">
+            
+          </div>
+          
+          <div class="stash-input">
+            <label for="red-shift-2">red shift 2: 0018</label>
+            <input id="red-shift-2" name="red-shift-2" type="range" min="1" max="100" value="18" class="slider">
+
+          </div>
+          
+          <div class="stash-input">
+            <label for="red-shift-3">red shift 3: 0019</label>
+            <input id="red-shift-3" name="red-shift-3" type="range" min="1" max="100" value="19" class="slider">
+
+          </div>
+        </section>
+
         <label for="padding">Padding: 0001</label>
-        <input id="padding" name="padding" type="range" min="0" max="10" value="1" class="slider">
+        <input id="padding" name="padding" type="range" min="0" max="100" value="1" class="slider">
+
+        <section id="sides" class="sides">
+          <div class="side-input">
+            <input class="radio-btn" type="radio" id="solid" name="sides" value="solid"
+                   checked>
+            <label for="solid">solid</label>
+          </div>
+
+          <div class="side-input">
+            <input class="radio-btn" type="radio" id="dashed" name="sides" value="dashed">
+            <label for="dashed">dashed</label>
+          </div>
+  
+          <div class="side-input">
+            <input class="radio-btn" type="radio" id="dotted" name="sides" value="dotted">
+            <label for="dotted">dotted</label>
+          </div>
+  
+          <div class="side-input">
+            <input class="radio-btn" type="radio" id="double" name="sides" value="double">
+            <label for="double">double</label>
+          </div>
+
+        </section>
 
         <label for="frames">Frames: 0500</label>
         <input id="frames" name="frames" type="range" min="1" max="2500" value="500" class="slider">
+
+        <label for="i-factor">i factor: 0001</label>
+        <input id="i-factor" name="i-factor" type="range" min="1" max="16" value="1" class="slider">
+
 
         <button type="button" id="mult" class="btn">Take Multiple Screenshots</button>
 
@@ -43,13 +91,15 @@
 
     </main>
 
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script> -->
+
+    <!-- <script src="./libs/v3.5.1-jquery.min.js"></script> -->
 
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js"></script>
       <!-- integrity="sha256-c3RzsUWg+y2XljunEQS0LqWdQ04X1D3j22fd/8JCAKw="
-      crossorigin="anonymous" -->
-    </script>
+      crossorigin="anonymous"
+    </script> -->
 
     <!-- <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.7/dist/html2canvas.js"></script> -->
 

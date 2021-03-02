@@ -89,6 +89,19 @@ img {
   cursor: pointer;
 }
 
+.stashes {
+  display: flex;
+  justify-content: space-between;
+}
+.stash-input {
+  display: inline-block;
+}
+
+.sides {
+  display: flex;
+  justify-content: space-around;
+}
+
 @media screen and (max-width: 700px) {
   .container {
     flex-direction: column;
