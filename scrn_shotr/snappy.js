@@ -9,6 +9,23 @@ let rShiftFactor2 = 18;
 let rShiftFactor3 = 19;
 let iterFactor = 1;
 
+// // for dithering tests
+// var opts = {
+//   colors: 8 /*  desired palette size  */,
+//   dithering: true /*  whether to use dithering or not  */,
+//   pixels: pixels /*  source pixels in RGBA 32 bits  */,
+//   width: _width,
+//   height: _height,
+// };
+
+// let bestQuality = false;
+// var quant = bestQuality ? new PnnLABQuant(opts) : new PnnQuant(opts);
+
+// /*  reduce image  */
+// var img8 = quant.quantizeImage(); /*  Uint32Array  */
+// var pal8 = quant.getPalette(); /*  RGBA 32 bits of ArrayBuffer  */
+// var indexedPixels = quant.getIndexedPixels(); /*  colors > 256 ? Uint16Array : Uint8Array  */
+
 // const canvas = document.getElementById('img-canvas');
 // const ctx = canvas.getContext('2d');
 
@@ -44,7 +61,6 @@ const sides = document.querySelector('#sides');
 sides.addEventListener('change', changeBorder, false);
 
 function updateNum(e) {
-  // console.log(e.target);
   let numSpot = e.target.previousSibling.previousSibling;
 
   let text = numSpot.innerHTML;
@@ -63,23 +79,18 @@ function updateNum(e) {
       break;
     case 'frames':
       numFrames = e.target.value;
-      console.log(frames);
       break;
     case 'red-shift-1':
       rShiftFactor1 = e.target.value;
-      console.log(rShiftFactor1);
       break;
     case 'red-shift-2':
       rShiftFactor2 = e.target.value;
-      console.log(rShiftFactor2);
       break;
     case 'red-shift-3':
       rShiftFactor3 = e.target.value;
-      console.log(rShiftFactor3);
       break;
     case 'i-factor':
       iterFactor = e.target.value / 4;
-      console.log(iterFactor / 4);
       break;
     default:
       console.log('you have a problem with the code');
@@ -101,11 +112,6 @@ function uploadImg(e) {
 }
 
 function changeBorder(e) {
-  console.log(
-    'in change border',
-    e.target.parentElement.parentElement.parentElement.previousElementSibling
-      .firstElementChild
-  );
   e.target.parentElement.parentElement.parentElement.previousElementSibling.firstElementChild.style.borderStyle =
     e.target.value;
 }
@@ -116,7 +122,6 @@ function fourDigitStr(num) {
   // https://stackoverflow.com/questions/14879691/get-number-of-digits-with-javascript
   let len = numDigits - ((Math.log(num) * Math.LOG10E + 1) | 0); // num of digits for any positive integer
   len = len === 4 ? 3 : len;
-  // console.log('len', len);
 
   for (let i = 0; i < len; i++) {
     str = str + '0';
@@ -134,10 +139,8 @@ function getPaddingAmts(factor) {
   for (let i = 0; i < 4; i++) {
     let amt = factor * Math.floor(Math.random() * 4) + 1;
     // amt = i % 2 === 1 ? amt : amt - 2;
-    // console.log(i, 'i', amt, 'amt');
     padStrArr.push(amt.toString() + 'px');
   }
-  // console.log(padStrArr);
   return padStrArr;
 }
 
@@ -151,13 +154,10 @@ function takeMultScreenShots() {
         frames.previousSibling.previousSibling.innerHTML.slice(-4),
         10
       );
-      // numFrames = 501;
     }
-    // console.log(numFrames, 'numFrames');
     html2canvas(document.getElementById('img-bucket'), {
       onrendered: function (canvas) {
         let padding = getPaddingAmts(deltaPad);
-        console.log('canvas', canvas);
         var context = canvas.getContext('2d');
 
         // default is png which is not lossy
@@ -173,13 +173,9 @@ function takeMultScreenShots() {
         shiftColor(context, canvas);
         var img = canvas.toDataURL('image/jpeg', deltaQual);
 
-        // console.log(img);
-
         const resultImage = document.querySelector('#result-image');
         resultImage.setAttribute('src', img);
         resultImage.parentElement.style.padding = `${padding[0]} ${padding[1]} ${padding[2]} ${padding[3]}`;
-
-        // console.log('3digits', fourDigitStr(count));
 
         // canvas.toBlob(function (blob) {
         //   saveAs(blob, `screenshot${threeDigitStr(count)}.png`);
@@ -224,7 +220,30 @@ function shiftColor(context, canvas) {
   const pixels = context.getImageData(0, 0, canvas.width, canvas.height);
   const data = pixels.data;
   const length = data.length;
-  console.log(rShiftFactor1, rShiftFactor2, rShiftFactor3);
+  // for (let i = 0; i < length; i += iteration) {
+  //   let firstAvg = (data[i] + data[i + 1] + data[i + 2]) / 3;
+  //   let secondAvg = (data[i + 4] + data[i + 5] + data[i + 6]) / 3;
+
+  //   if (i % 3 === 1) {
+  //     data[i] = data[i + 4];
+  //     data[i + 1] = data[i + 5];
+  //     data[i + 2] = data[i + 6];
+  //   }
+
+  //   // if (i % 3 === 0) {
+  //   //   data[i * rShiftFactor1] = 'ff';
+  //   //   // parseInt(data[i * rShiftFactor1], 16) <= 16 || 16;
+  //   //   data[i * rShiftFactor2] = 'ff';
+  //   //   // parseInt(data[i / rShiftFactor1] <= 16)
+  //   //   //   ? data[i * rShiftFactor1]
+  //   //   //   : 16;
+  //   // } else {
+  //   if (i % 3 <= 1 || i % 3 <= 0) {
+  //     data[i * rShiftFactor1] = firstAvg;
+  //     data[i * rShiftFactor2] = (firstAvg + secondAvg) / 2;
+  //     data[i * rShiftFactor3] = secondAvg;
+  //   }
+
   for (let i = 0; i < length; i += iteration) {
     let firstAvg = (data[i] + data[i + 1] + data[i + 2]) / 3;
     let secondAvg = (data[i + 4] + data[i + 5] + data[i + 6]) / 3;
@@ -253,6 +272,17 @@ function shiftColor(context, canvas) {
       // data[fact3] = stash3;
     }
   }
+
+  // }
+
+  // data[i * rShiftFactor2] = parseInt(data[i * rShiftFactor2] <= 16)
+  // data[i * rShiftFactor2] = parseInt(data[i * rShiftFactor2] <= 16)
+  // data[i * rShiftFactor2] = parseInt(data[i * rShiftFactor2] <= 16)
+  //   ? data[i * rShiftFactor2]
+  //   : 16;
+  // data[i * rShiftFactor3] = data[i * rShiftFactor3] <= 16 || 16;
+  // }
+  // } else {
 
   context.putImageData(pixels, 0, 0);
   canvas.style.display = '';
